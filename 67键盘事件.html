@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+
+		</style>
+	</head>
+	<body>
+		<input type="text" name="" id="" value="" />
+		<script type="text/javascript">
+			/*
+			 * 键盘事件一般都是绑定给可以获得焦点的对象或者document
+			 * onkeydown按键被松开，
+			 * 一直按着某个键不松手，会连续触发事件
+			 * onkeyup按键被松开
+			 * 
+			 * keyCode，获取按键的编码，通过他可以用来判断哪个按键被按下
+			 * altKey shiftKey ctrlKey用来判断alt shift ctrl是否被按下
+			 */
+/*			document.onkeydown=function(enevt){
+			console.log(event.keyCode);
+			if(event.keyCode===89&&event.altKey){
+				alert("y被按下了");
+			}
+			};
+			document.onkeyup=function(enevt){
+//				alert(2);
+			};*/
+			var inputs=document.getElementsByTagName("input")[0];
+			inputs.onkeydown=function(event){
+				event=event||window.event;
+				//数字48-57，是文本框中不输入数字
+				if(event.keyCode>=48&&event.keyCode<=57){
+					return false;
+				}
+				console.log("按键被按下");
+				//在文本框输入内容，属于onkeydown默认行为。
+				//如果在onkeydown取消默认行为，则输入的内容，不会出现在文本框里
+				//return false;//取消默认行为
+			}
+		</script>
+	</body>
+</html>

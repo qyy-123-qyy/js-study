@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 200px;
+				height: 200px;
+				background-color: plum;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+			/*
+			 * 按左键，div左移 37
+			 * 按右键，div右移 39
+			 * 按上键，div向上移 38
+			 * 按下键，div向下移 40
+			 */
+			document.onkeydown=function(event){
+				event=event||window.event;
+				var speed=10;
+				//当用户按了ctrl后加速
+				if(event.ctrlKey){
+					var speed=200;
+				}
+				switch (event.keyCode){
+					case 37:
+					//向左移 left值减小
+					box.style.left=box.offsetLeft-speed+"px";
+						break;
+					case 38:
+					//向上移 top值减小
+					box.style.top=box.offsetTop-speed+"px";
+						break;
+					case 39:
+					//向右移 left值增大
+					box.style.left=box.offsetLeft+speed+"px";
+						break;
+					case 40:
+					//向下移 top值增大
+					box.style.top=box.offsetTop+speed+"px";
+						break;
+					default:
+						break;
+				}
+			}
+		</script>
+	</body>
+</html>

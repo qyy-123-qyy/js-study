@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		/*
+		 * setTimeout 延时调用。一个函数不马上执行，而是隔一段事件执行只会执行一次
+		 * setInterval 会执行多次
+		 */
+		var num=1;
+        /*setInterval(function(){
+			console.log(num++);
+		},3000)*/
+		var timer=setTimeout(function(){
+			console.log(num++);
+		},3000);
+		//使用clearTimeout来关闭一个延时调用
+		clearTimeout(timer);
+		</script>
+		
+	</body>
+</html>

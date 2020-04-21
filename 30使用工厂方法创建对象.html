@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 使用工厂方法创建对象
+			 * 无法区分类型
+			 */
+			function createPerson(name,age){
+				//创建一个新的对象
+				var obj=new Object();
+				//向对象中添加属性
+				obj.name=name;
+				obj.age=age;
+				obj.sayName=function(){
+					alert(this.name);
+				};
+				//将新的对象返回
+				return obj;
+			}
+			var obj2=createPerson("yang",17);
+			var obj3=createPerson("black",17);
+			console.log(obj2);
+	         console.log(obj3);
+	         obj2.sayName();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

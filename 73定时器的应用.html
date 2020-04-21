@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				width: 100px;
+				height: 100px;
+				background-color:plum ;
+				position: absolute;
+				left: 0;
+}
+		</style>
+	</head>
+	<body>
+		<button id="btn">点击按钮后box向右移动</button>
+        <button id="btn1">点击按钮后box向左移动</button>   
+		<div id="box"></div>		
+		<script type="text/javascript">
+			var btn=document.getElementById("btn");
+			var btn1=document.getElementById("btn1");		
+			var box=document.getElementById("box");	
+			var timer;
+			btn.onclick=function(){
+				clearInterval(timer);
+				 timer=setInterval(function(){
+					
+					//获取box的原来的left值
+					var oldValue=parseInt(getStyle(box,"left"));
+					//在旧值的基础上增加
+					var newValue=oldValue+11;
+					if(newValue>800){
+						newValue=800;
+					}
+					box.style.left=newValue+"px";
+					if(newValue==800){
+						//到达目的
+						clearInterval(timer);
+					}
+				},30);
+			};
+				
+			btn1.onclick=function(){
+				clearInterval(timer);
+				 timer=setInterval(function(){					
+					//获取box的原来的left值
+					var oldValue=parseInt(getStyle(box,"left"));
+					//在旧值的基础上增加
+					var newValue=oldValue-11;
+					if(newValue<0){
+						newValue=0;
+					}
+					box.style.left=newValue+"px";
+					if(newValue==0){
+						//到达目的
+						clearInterval(timer);
+					}
+				},30);
+			};
+			
+			function getStyle(obj,name){
+			      if(window.getComputedStyle){
+			      	return getComputedStyle(obj, null)[name];
+			      }else{
+			      	return obj.currentStyle[name];
+			      }
+//                return window.getComputedStyle?getComputedStyle(obj, null)[name]:obj.currentStyle[name];
+			}
+			
+		</script>
+	</body>
+</html>

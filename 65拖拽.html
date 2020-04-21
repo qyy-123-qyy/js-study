@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 200px;
+				height: 200px;
+				background-color: plum;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		我是文字
+		<div id="box"></div>
+		<script type="text/javascript">
+			var box=document.getElementById("box");
+			/*
+			 * 拖拽box元素
+			 *-拖拽的流程
+			 *  第一步 当鼠标在被拖拽元素上按下时，开始拖拽 onmousedown
+			 *  第二步 当鼠标移动时被拖拽元素跟随鼠标移动 onmousemove
+			 *  第三步 当鼠标松开时，停止拖拽  onmouseup 
+			 */
+			box.onmousedown=function(event){
+				event=event||window.event;
+				//获取div的偏移量
+				var ol=event.clientX-box.offsetLeft;
+				var ot=event.clientY-box.offsetTop;
+				document.onmousemove=function(event){
+					event=event||window.event;
+					
+					//获取鼠标坐标
+					var left=event.clientX-ol;
+					var top=event.clientY-ot;
+					box.style.left=left+"px";
+					box.style.top=top+"px";
+					
+				};
+				document.onmouseup=function(){
+					//这两个事件在按下时开始，只需要执行一次
+					document.onmousemove=null;
+					document.onmouseup=null;
+				
+				};
+				return false;
+			};
+		</script>
+	</body>
+</html>

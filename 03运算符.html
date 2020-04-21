@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 运算符也叫操作符
+			通过运算符可以对一个或多个值进行运算结果
+			比如,typeof就是运算符,可以来获得一个值的类型
+			他会将该值的类型以字符串的形式返回
+			算数运算符 + - * / %不会对原变量产生影响
+			隐式转换：给非number类型加个正号变成number类型，-0、*1、/1也可以转换为number
+			                  给非string类型可以加个""(空串)可以转换为string类型
+			任何数和NaN做运算都为NaN，字符串加法运算会拼串
+			/*
+			var a=true;
+			a=!a;
+			console.log(a);
+			!非运算 true变false，false变true
+			 非布尔值先转换为布尔值在取反var a="hello" a=!!a
+			 * && 与运算。a&&b 如果a为真，则返回b，如果a为假，则返回a
+			 * || 或运算    a||b 如果a为真，则返回a，如果a为假，则返回b
+			 */
+			var a=1||2;
+			console.log(a);
+			var a=3||0;
+			console.log(a);
+			var a=null||4;
+			console.log(a);
+			var a=null||undefined;
+			console.log(a);
+			var a=1&&2;
+			console.log(a);
+			var a=3&&0;
+			console.log(a);
+			var a=null&&4;
+			console.log(a);
+			var a=null&&undefined;
+			console.log(a);
+			
+			//隐式转换
+			var b="12";
+			b=-b;
+			console.log(b);
+			console.log(typeof b);
+			var c=123;
+			c=c+"";
+			console.log(c);
+			console.log(typeof c);
+			//赋值运算符
+			/*
+			 * =符号右侧的值赋值给左侧的值
+			a=a+5-->a+=5 a=a-5- ->a-=5 a=a*5-->a*=5
+			a=a/5-->a/=5 a=a%5-->a%=5
+			 */
+			//关系运算符，关系成立返回true，不成立返回false
+			/*
+			 * 对于非数值进行比较时，先转换为数字在比较，任何值和NaN做任何比较都为false
+			 * 特殊情况，符号两侧都是字符串是，不会转换为数字，会转变成unicode(字符）编码（十六进制)。
+			 * 比较字符编码是一位一位进行比较的。如果两位一样，则比较下一位，这个可以用来给英文进行排序
+			 * 注意：比较两个字符串数字时，一定要转型，将其中一个转换为number类型即可
+			 */
+			var e=2>2;
+			    e=2>=2;
+			console.log(e);
+			console.log("11"<+"5");
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

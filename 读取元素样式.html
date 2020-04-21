@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				/*width:80px;*/
+				height: 80px;
+				background-color:plum;
+				border: 1px red solid;
+				width: 80px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+			var box=document.getElementById("box");
+			var btn=document.getElementById("btn");
+			btn.onclick=function(){
+				/*
+				 * 获取元素当前样式
+				 * currentStyle只有IE支持，其他浏览器不支持。只读，不能修改
+				 * 
+				 * 其他浏览器获取当前元素样式 getComputedStyle()只读，不能修改
+				 * ()IE8及以下不支持
+				 * 参数，i.要获取样式的元素
+				 *     ii.可以传一个伪元素，一般都写null
+				 * 该方法会返回一个对象，对象中封装了当前元素的样式
+				 * 如果获取样式没有设置，则会获取当前真实的值，而不是默认值
+				 *  比如，没有设置width，不会获取到auto，而是一个长度
+				 */
+			//alert(box.currentStyle.width);
+            //alert(getComputedStyle(box,null).width);
+			   //定义一个函数获取指定元素的当前样式
+			   var h=getStyle("box","height");
+			  alert(h);
+			function getStyle(obj,name){
+				//高级浏览器
+				//return window.getComputedStyle(obj,null)[name];
+//				alert(getComputedStyle);
+				//IE8及以下
+				//return obj.currentStyle[name];
+                   // 不加window
+			      if(window.getComputedStyle){
+			      	return window.getComputedStyle(obj, null)[name];
+			      } else{
+			      	return obj.currentStyle[name];
+			      }
+//                return window.getComputedStyle?getComputedStyle(obj, null)[name]:obj.currentStyle[name];
+			}
+			
+			};
+			
+				
+			};
+			</script>
+		
+	</head>
+	<body>
+		<div id="box"></div>
+		<button id="btn">点我一下</button>
+	</body>
+</html>

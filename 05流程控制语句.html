@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 1.条件判断语句
+			 */
+			//将prompt写到while循环里
+			while(true){
+				var s=prompt("请输入你的成绩");
+				if(s>=0&&s<=100){
+					//满足条件
+					break;
+				}
+			}
+			
+//			//判断是否合法
+//			if(s>100||s<0||isNaN(s)){
+//				alert("请输入合法数字");
+//			}else
+			if(s==100){
+				alert("宝马");
+			}else if(s>=80){
+				alert("手机");
+			}else if(s>=60){
+				alert("参考书");
+			}else{
+				alert("啥都没");
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

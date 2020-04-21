@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="img/1.jpg" id="imglist" height="400px"/><br />
+		<button id="btn01">开始</button>
+		<button id="btn02">停止</button>
+		<script type="text/javascript">
+			//使图片自动切换
+			var imglist=document.getElementById("imglist");
+			//创建一个数组来保存图片的路径
+			var imgArr=["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg","img/7.jpg","img/8.jpg","img/9.jpg"];
+		    //定义一个变量，保存当前图片索引
+		    var index=0;
+		    //定义一个变量，保存定时器的标识；
+		    var timer;
+			var btn01=document.getElementById("btn01");
+			var btn02=document.getElementById("btn02");		
+		    btn01.onclick=function(){
+		    	 //开启一个定时器，来切换图片
+		    //在开启定时器之前，需要将当前元素上的其他定时器关闭
+		    clearInterval(timer);
+		   timer=setInterval(function(){
+		    	//使索引自增
+		    	index++;
+		    	//判断索引不超过再打索引
+		    	/*if (index>imgArr.length-1) {
+		    		index=0;
+		    	}*/
+		    	index%=imgArr.length;
+		    	//修改img的src属性
+		    	imglist.src=imgArr[index];
+		    },1000);
+		    };
+		    /*
+		     * clearInterval()里可以传任何参数
+		     */
+		    btn02.onclick=function(){
+		    	clearInterval(timer);
+		    };
+		   
+		</script>
+	</body>
+</html>

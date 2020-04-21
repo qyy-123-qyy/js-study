@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 在页面中接受一个用户输入的数字，并判断是否位质数
+			 *    质数指整数在一个大于1的自然数中,除了1和此整数自身外,没法被其他自然数整除的数
+			 */
+			for(;true;){
+				var num=prompt("请输入一个大于1的数");
+				if(num>1){
+					break;
+				}
+				
+			}
+			
+			//判断这个值是否合法
+			
+//			if(num<=1){
+//				alert("该值不合法");
+//			}else{
+				//默认当前num是质数
+				var flag=true;
+				//判断是否为质数
+				//获取2-num之间的数
+				for (var i=2;i<num;i++) {
+					if (num%i==0){
+				//如果num能被i整除，则说明num一定不是质数
+			       flag=false;
+					}
+				}
+				//如果num是质数则输出
+				if(flag){
+					alert(num+"是质数");
+				}else{
+					alert(num+"不是质数");
+				}
+			//}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

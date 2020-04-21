@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<button disabled="disabled"></button>
+		<input type="" name="" id="" value="" disabled="disabled"/>
+		<script type="text/javascript">
+			/*
+			 * 电子邮件
+			 * hello .nihao @ abc .com.cn
+			 * 任意字母数字下划线    .任意字母下划线    @ 任意字母数字     .任意字母(2-5位) .任意字母(2-5位)
+			 * \w{3,}       (\.\w+)*      @  [A-z0-9]+  (\.[A-z{2-5}){1,2}
+			 */
+			var emailReg=/^\w{3,}(\.\w+)*[A-z0-9]+(\.[A-z]{2-5}){1,2}$/;
+//			var emailReg=/^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z)/
+			var email="1152811740@qq.com";
+			console.log(emailReg.test(email));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

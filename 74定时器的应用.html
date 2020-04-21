@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box1{
+				width: 100px;
+				height: 100px;
+				background-color: yellowgreen;
+				position: absolute;
+				left: 0;
+			}
+			#box2{
+				width: 100px;
+				height: 100px;
+				background-color: palegoldenrod;
+				position: absolute;
+				left: 0;
+				top: 200px;
+			}
+		</style>
+	</head>
+	<body>
+	<button id="btn01">点击按钮box1向右移动</button>
+	<button id="btn01">点击按钮box1向左移动</button>
+	<button id="btn01">点击按钮box2向右移动</button>	
+	<div id="box1"></div>
+	<div id="box2"></div>	
+	</body>
+	<script type="text/javascript">
+		//尝试创建一个简单的动画函数
+			/*
+			 * 参数
+			 * obj 要执行动画的对象
+			 * speed 要移动的速度
+			 * targer 执行
+			 */
+			var btn01=document.getElementById("btn01");
+			var btn02=document.getElementById("btn02");
+			var btn03=document.getElementById("btn03");	
+			var box1=document.getElementById("box1");			
+			var box2=document.getElementById("box2");						
+			btn01.onclick=function(){
+			    move(box1,800,10);	
+			};
+			btn02.onclick=function(){
+				move(box1,0,10);
+			};
+			btn03.onclick=function(){
+			    move(box2,800,10);	
+			};
+			//var timer;
+		function move(obj,target,speed){
+				clearInterval(obj.timer);
+				//获取元素当前位置
+				var current=parseInt(getStyle(obj,"left"));
+				//判断speed的正负值
+				//如果从0向800移动，则speed为正
+				//如果从800向0移动，则speed为负
+				if(current>target){
+					speed=-speed;
+				}
+				 obj.timer=setInterval(function(){					
+					//获取box的原来的left值
+					var oldValue=parseInt(getStyle(obj,"left"));
+					//在旧值的基础上增加
+					var newValue=oldValue+speed;
+					//从目标target向左移动
+					//向左移动时，需要判断newValue是否小于target
+					//向右移动时，需要判断newValue是否大于target
+					
+					if(speed<0&&newValue<target||speed>0&&newValue>target){
+						newValue=target;
+					}
+					box.style.left=newValue+"px";
+					if(newValue==target){
+						//到达目的
+						clearInterval(obj.timer);
+					}
+				},30);
+			}
+				function getStyle(obj,name){
+			      if(window.getComputedStyle){
+			      	return getComputedStyle(obj, null)[name];
+			      }else{
+			      	return obj.currentStyle[name];
+			      }
+//                return window.getComputedStyle?getComputedStyle(obj, null)[name]:obj.currentStyle[name];
+			}
+	</script>
+</html>

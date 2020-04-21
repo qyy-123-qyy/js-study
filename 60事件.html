@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+			 width: 300px;
+			 height: 80px;
+			 border: 1px solid pink;
+			 margin-bottom: 20px;
+		     }
+		     #box1{
+			 width: 300px;
+			 height: 40px;
+			 border: 1px solid plum;
+		     }
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="box1"></div>
+		<script type="text/javascript">
+			var box=document.getElementById("box");
+			var box1=document.getElementById("box1");
+			/*
+			 * onmousemove 该事件将会在鼠标移动时触发
+			 * 事件对象-当事件的响应函数被触发时，浏览器每次都会将一个事件对象作为实参传递进响应函数
+			 *   在事件对象中封装了当前事件相关的一切信息，比如鼠标的坐标，键盘哪个键被按下，鼠标滚轮滚动的方向
+			 * clientX 可用获取鼠标指针的水平坐标
+			 * clientY 可用获取鼠标指针的水平坐标
+			 * 
+			 * 在IE8中，响应函数触发时，浏览器不会传递事件对象，
+			 *  在IE8及以下浏览器中，是将该事件对象作为window对象的属性保存
+			 */
+			box.onmousemove=function(event){
+//			    alert(event);
+                //IE没有event返回undefined为false，输出window。undefined
+                event=event||window.event
+			    var x=event.clientX;
+				var y=event.clientY;
+				box1.innerHTML="x="+x+","+"y="+y;
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//向页面输入连续数字
+//			var n=1;
+//			document.write(n+++"<br />");
+//			document.write(n+++"<br />");
+			/*while循环，先判断，后执行
+			 * 语法
+			 *  while(条件表达式){
+			 * 	语句...
+			 * }
+			 * 先对条件表达式进行求值判断，为true，则进行循环体，
+			 *  循环体执行完毕后，继续对表达式进行判断
+			 *   可以使用break，来终止循环，如果为false，则终止循环
+			 */
+			var n=1;
+			while(true){
+				alert(n++);
+				if(n==2){
+				break;
+				}
+				//break;
+			}
+			//创建一个循环，往往需要三个步骤
+			//1、创初始化一个变量
+			var i=0;
+			//2；在循环体中设置一个条件表达式
+			while(i<10){
+				//3、定义一个更新表达式
+				document.write(i+++"<br/>");
+			}
+			/*
+			 * do...while循环。先执行，后判断，可以保证循环体至少循环一次
+			 * 语法
+			 * do{
+			 * 	语句
+			 * }while(条件表达式)
+			 * 先执行循环体，循环体执行完毕后，在对while后的条件表达式进行判断，
+			 * 如果为true，则继续执行循环体，依次类推，为false，则终止循环
+			 */
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

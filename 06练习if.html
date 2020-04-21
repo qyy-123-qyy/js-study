@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+//			var height=prompt("请输入你的身高(cm)");
+//			var money=prompt("请输入你的财富(元)");
+//			var face=prompt("请输入你的颜值(px)");
+//			if(height>180&&face>500&&money>1000){
+//				alert("必嫁");
+//			}else if(height>180||face>500||money>1000){
+//					alert("嫁吧");
+//			}else{
+//				alert("不嫁");
+//			}
+		/*
+		 * 编写程序，由键盘输入三个数分别存入变量num1、num2、num3.
+		 * 对他们进行排序，并且从小到大输出
+		 * prompt输出为字符串
+		 */
+		var num1=+prompt("请输入第一个数");
+		var num2=+prompt("请输入第二个数");
+		var num3=+prompt("请输入第三个数");
+	     //获取用户输入的三位数
+	     //找到三个数中的最小值
+	if(num1<num2&&num1<num3) {
+				//num1最小
+				if(num3>num2){
+					//顺序为num1、num2、num3
+					alert(num1+","+num2+","+num3);
+				}else{
+					//顺序为num1、num3、num2
+					alert(+num1+","+num3+","+num2);
+				}
+		}else if(num2<num1&&num2<num3){
+				//num2最小
+				if(num1>num3){
+					//顺序为num2、num3、num1
+					alert(num2+","+num3+","+num1);
+				}else{
+					//顺序为num2、num1、num3
+					alert(num2+","+num1+","+num3);
+				
+		}
+				}else{
+			//num3最小
+			if (num1<num2){
+				alert(num3+","+num1+","+num2);
+			} else{
+				alert(num3+","+num2+","+num1);
+			}
+		}
+	
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 检查一个字符串里是否含有.
+			 * .表示任意字符
+			 * 在正则表达式中使用\作为转义字符
+			 * \.来表示. 
+			 * \\ 表示\
+			 * 注意，使用构造函数时，由于它的参数是一个字符串，而\是字符串中转义字符
+			 * "\\. " "\\\\"
+			 */
+			var reg=/\./;
+			/*
+			 * \w 表示任意字母，数字，下划线 [A-z0-9_]
+			 * \W 除了字母，数字，下划线_  [^A-z0-9_]
+			 * \d 任意数字 [0-9]
+			 * \D 除了数字 [^0-9]
+			 * \s 空格
+			 * \S 除了空格
+			 * \b 单词边界
+			 * \B 除了单词边界
+			 */
+			//检查一个字符串中是否含有单词child
+			var reg=/\bchild\b/;
+			console.log(reg.test("hellochild"));
+			
+			//接受一个用户输入
+//			var str=prompt("请输入你的用户名");
+                    var str="       hel   lo      ";
+//                  str=str.replace(/\s/g,"");
+                      //去除开头的空格   /^\s*/
+//                  str=str.replace(/^\s*/,"");
+                      //去除结尾的空格   /\s*$/
+//                  str=str.replace(/\s*$/,"");
+                    //去除前后的空格
+                    str=str.replace(/^\s*|\s*$/g,"");
+                    
+                    console.log(str);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

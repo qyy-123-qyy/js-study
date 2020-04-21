@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<h1 id="count">1</h1>
+	<script type="text/javascript">
+		/*
+		 * setInterval
+		 * 定时调用，可以将一个函数隔一段事件调用
+		 * 返回值，返回一个number类型
+		 * 这个数字用来作为定时器的标识
+		 */
+		var count=document.getElementById("count");
+		var num=1;
+		var timer=setInterval(function(){
+		count.innerHTML=num++;
+		if (num==11) {
+			//clearInterval关闭一个定时器
+		clearInterval(timer);
+		}
+		},1000);
+		console.log(timer);
+		
+	</script>
+</html>

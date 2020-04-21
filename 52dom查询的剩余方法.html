@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var body=document.getElementsByTagName("body")[0];
+				    body=document.body;//获取body
+				var html=document.documentElement;//获取html根标签
+				var all=document.all;//页面中所有的元素 
+				    all=document.getElementsByTagName("*");//和all一样获取页面中所有元素
+				for(var i=0;i<all.length;i++){
+					console.log(all[i]);
+				}
+				console.log(all.length);
+				//getElementsByClassName()IE8及以下不支持
+				var box=document.getElementsByClassName("box");
+				console.log(box.length);
+				var div=document.getElementsByTagName("div");
+				console.log(div.length);
+				//获取box中的div 
+				/*
+				 * document.querySelector()
+				 * 需要一个选择器的字符串作为参数,根据一个css选择器来查询一个元素节点
+				 * 虽然IE8没有getElementsByClassName()但是可以使用querySelector()
+				 * 使用该方法总会返回唯一的一个元素,如果满足的条件有多个,只会返回第一个
+				 * 
+				 * querySelectorAll()和querySelector()类似
+				 * 不同的是它会将符合条件的元素封装到一个数组中返回
+				*/
+				var div=document.querySelector(".box div");
+				var box=document.querySelector(".box");
+				    box=document.querySelectorAll(".box");
+				 console.log(div.innerHTML);
+				 console.log(box.length);
+				 
+			};
+		</script>
+	</head>
+	<body>
+		<div class="box">
+		<div>我是第一个box</div>
+		</div>
+		<div class="box">
+		<div>box</div>
+		</div>
+		<div class="box2"></div>		
+	</body>
+</html>

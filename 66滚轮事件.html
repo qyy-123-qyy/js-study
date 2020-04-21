@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				height: 5000px;
+			}
+			#box{
+				width: 200px;
+				height: 200px;
+				background-color: plum;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			
+		</div>
+		<script type="text/javascript">
+			/*
+			 * onmousewheel鼠标滚轮滚动事件火狐不支持
+			 * 火狐用DOMMouseScroll
+			 */
+			var box=document.getElementById("box");
+			//为box绑定鼠标滚轮事件
+			//事件相同第一种
+			/*function fun(){
+				alert(1);
+			};
+			box.onmousewheel=fun;
+			bind(box,"DOMMouseScroll",fun);*/
+			
+			//第二种			
+			box.onmousewheel=function(event){
+			/*
+			判断滚轮方向 event.wheelData 向上正值，向下负值 火狐不支持
+			火狐用event.detail 向上负值-3 向下正值3
+			alert(event.wheelData);
+			*/
+			//判断鼠标滚轮方向
+			if(event.wheelDelta>0||event.detail<0){
+				// 向上滚时，box变短
+				box.style.height=box.clientHeight-10+"px";
+			}else{
+				//当鼠标滚轮向下滚动时，box变长
+				box.style.height=box.clientHeight+10+"px";
+				
+			}
+			/*
+			 * 使用addEventListener()方法绑定响应函数，取消默认行为不能使用return false 
+			 * 需要使用event来取消默认行为event.preventDefault()
+			 * 但是IE8不支持
+			 */
+			event.preventDefault&&event.preventDefault();
+			return false;
+			    };
+			bind(box,"DOMMouseScroll",box.onmousewheel);
+				function bind(obj,eventStr,callback){
+					if (obj.addEventListener){
+						//addEventListener
+					obj.addEventListener(eventStr,callback,false);
+					}else{
+						//attachEvent
+						/*
+						 * this是谁由调用方式决定
+						 * callback.call(obj)
+						 */
+					obj.attachEvent("on"+eventStr,function(){
+						callback.call(obj);
+					});
+					}
+				}
+		</script>
+	</body>
+</html>

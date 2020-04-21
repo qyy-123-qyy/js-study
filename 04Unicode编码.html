@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+			 * 在字符串中使用转义字符输入unicode编码\u
+			 */
+			console.log("\u2620");
+			console.log("\u2621");
+			
+			console.log(0x2620);
+			console.log(16*2+16*16*6+16*16*16*2);
+			/*
+			 * 相等运算符
+			 * 使用== 来做相等运算符 类型不同会先转换相同类型在比较
+			 * undefined衍生自null，他们做相等为true，全等为false，NaN不和任何值相等，包括他本身
+			 * 使用=== 来做全等运算符 不会进行类型转换，类型不一样直接返回false
+			 * ！= 不相等                                   !!=不全等
+			 */
+			var a="4";
+			console.log(a==4);
+			/*isNaN()用来判断是否为NaN
+			 */
+			var b=NaN;
+			console.log(isNaN(b));
+			/*
+			 * 条件运算符
+			 * 语法：条件表达式？语句1：语句2
+			 * 条件为true执行语句1.为false执行语句2
+			 */
+			var a=10;
+			var b=20;
+			var c=30;
+			//a>b?alert("a大"):alert("b大");
+//		   获取a和b的最大值?
+                 var max=a>b?a:b;
+                 //获取a b c中的最大值
+                 max=max>c?max:c;
+                 console.log(max);
+		</script>
+	</head>
+	<body>
+		<!--在网页中使用unicode编码
+			&#编码，这里的编码需要十进制
+		-->
+		<h1 style="font-size: 100px;">&#9760</h1>
+		<h1 style="font-size: 100px;">&#9827</h1>
+		
+	</body>
+</html>
